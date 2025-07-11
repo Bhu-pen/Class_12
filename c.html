@@ -55,12 +55,13 @@
     int main() {
         // A for loop to print numbers from 1 to 5
         for (int i = 1; i <= 5; i++) {
-            printf("%d\n", i);  // Print the current value of i
+            printf("%d\n", i);  
         }
     
         return 0;
     }
                     </pre>
+                  <img src="photos/c1.png" alt="Output" style="max-width: 100%; height: auto;">
                     <li><strong>While loop</strong></li>
                     A while loop in C is a control flow statement that repeatedly executes a block of code as long as a given condition evaluates to true. The condition is checked before each iteration, and the loop continues to execute until the condition becomes false.
                     it is Syntax is :
@@ -82,6 +83,7 @@
         return 0;
     }
     </pre>
+                     <img src="photos/c2.png" alt="Output" style="max-width: 100%; height: auto;">
                     <li><strong>Do-while loop</strong></li>
                     A do-while loop in C is a control flow statement that repeatedly executes a block of code at least once, and then continues executing as long as a specified condition evaluates to true. Unlike the while loop, the do-while loop checks the condition after executing the code block, meaning the loop body will always run at least once, even if the condition is false.
                     It's Syntax is :
@@ -109,6 +111,7 @@
     }
     
                     </pre>
+                     <img src="photos/c1.png" alt="Output" style="max-width: 100%; height: auto;">
                 </ol>
             </section>
             <section class="chapter-section">
@@ -135,6 +138,7 @@
                     }
                     
               </pre>
+                <img src="photos/c3.png" alt="Output" style="max-width: 100%; height: auto;">
        <li><strong>Two Dimensional Array</strong></li>
        In C, a two-dimensional array is essentially an array of arrays. It can be thought of as a table with rows and columns. You can define a two-dimensional array by specifying the type of the elements and the number of rows and columns.
        it's example is:
@@ -161,6 +165,7 @@
             }
 
        </pre>
+                          <img src="photos/c4.png" alt="Output" style="max-width: 100%; height: auto;">
        <li><strong>Multi Dimensional Array</strong></li>
        In C, a multi-dimensional array is an array that has more than two dimensions. The most common multi-dimensional arrays are two-dimensional arrays (which can be thought of as matrices), but you can define arrays with three or more dimensions as well.
          it's example is:
@@ -201,6 +206,7 @@
                     return 0;
                 }
          </pre>
+                                <img src="photos/c5.png" alt="Output" style="max-width: 100%; height: auto;">
             </ol>
             <h2>
 String array in C
@@ -242,6 +248,7 @@ String array in C
                         return 0;
                     }
             </pre>
+                             <img src="photos/c6.png" alt="Output" style="max-width: 100%; height: auto;">
 
             <section class="chapter-section">
     <h2>Working with a Function</h2>
@@ -304,6 +311,8 @@ int main() {
     return 0;
 }
             </pre>
+            
+                             <img src="photos/c7.png" alt="Output" style="max-width: 100%; height: auto;">
         </li>
         <li><b>ii. Function with return type with arguments</b>
             <br>
@@ -318,6 +327,7 @@ int main() {
     return 0;
 }
             </pre>
+               <img src="photos/c8.png" alt="Output" style="max-width: 100%; height: auto;">
         </li>
         <li><b>iii. Function with no return type and no arguments</b>
             <br>
@@ -331,6 +341,7 @@ int main() {
     return 0;
 }
             </pre>
+                        <img src="photos/c9.png" alt="Output" style="max-width: 100%; height: auto;">
         </li>
         <li><b>iv. Function with no return type but with arguments</b>
             <br>
@@ -344,6 +355,7 @@ int main() {
     return 0;
 }
             </pre>
+            <img src="photos/c10.png" alt="Output" style="max-width: 100%; height: auto;">
         </li>
     </ol>
 </section>
@@ -371,10 +383,87 @@ register int counter;
         <li><b>Static:</b><br>
             Variables retain their value between function calls. For local variables, static means the value persists after the function exits. For global variables, static restricts visibility to the current file.
             <pre>
-static int count;
+#include <stdio.h>
+
+void staticExample() {
+    static int count = 0;
+    count++;
+    printf("Static count: %d\n", count);
+}
+
+int main() {
+    staticExample();
+    staticExample();
+    staticExample();
+    return 0;
+}
+
             </pre>
+            <img src="photos/c11.png" alt="Output" style="max-width: 100%; height: auto;">
         </li>
     </ol>
+     <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <thead style="background-color: #f2f2f2;">
+            <tr>
+                <th>Feature</th>
+                <th>auto</th>
+                <th>register</th>
+                <th>static</th>
+                <th>extern</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Scope</strong></td>
+                <td>Local to block/function</td>
+                <td>Local to block/function</td>
+                <td>Local to block/function (if inside function), or global (if outside)</td>
+                <td>Global (defined elsewhere)</td>
+            </tr>
+            <tr>
+                <td><strong>Default Value</strong></td>
+                <td>Garbage (undefined)</td>
+                <td>Garbage (undefined)</td>
+                <td>Zero</td>
+                <td>Depends on its definition</td>
+            </tr>
+            <tr>
+                <td><strong>Storage Location</strong></td>
+                <td>RAM (stack)</td>
+                <td>CPU Register (if available)</td>
+                <td>RAM (data segment)</td>
+                <td>RAM (global segment)</td>
+            </tr>
+            <tr>
+                <td><strong>Lifetime</strong></td>
+                <td>During function/block execution</td>
+                <td>During function/block execution</td>
+                <td>Entire program lifetime</td>
+                <td>Entire program lifetime</td>
+            </tr>
+            <tr>
+                <td><strong>Keyword</strong></td>
+                <td><code>auto</code></td>
+                <td><code>register</code></td>
+                <td><code>static</code></td>
+                <td><code>extern</code></td>
+            </tr>
+            <tr>
+                <td><strong>Use Case</strong></td>
+                <td>Default for local variables</td>
+                <td>For fast-access small variables</td>
+                <td>Persistent local variables</td>
+                <td>Access global variable from another file</td>
+            </tr>
+            <tr>
+                <td><strong>Can be used with global variables?</strong></td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 <section class="chapter-section">
     <h2>4. Recursive Function in C</h2>
@@ -391,6 +480,7 @@ return_type function_name(parameters) {
     }
 }
     </pre>
+   
     <b>Example: Factorial using recursion</b>
     <pre>
 #include &lt;stdio.h&gt;
@@ -407,10 +497,13 @@ int main() {
     printf("Factorial of %d is %d\n", num, factorial(num));
     return 0;
 }
+         <img src="photos/c12.png" alt="Output" style="max-width: 100%; height: auto;">
     </pre>
     <b>Example: Fibonacci using recursion</b>
     <pre>
 #include &lt;stdio.h&gt;
+
+#include <stdio.h>
 
 int fibonacci(int n) {
     if (n == 0)
@@ -423,10 +516,14 @@ int fibonacci(int n) {
 
 int main() {
     int n = 6;
-    printf("Fibonacci term %d is %d\n", n, fibonacci(n));
+    for (int i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
+  
     return 0;
 }
-    </pre>
+ </pre>
+     <img src="photos/c13.png" alt="Output" style="max-width: 100%; height: auto;">
 </section>
 
 <section class="chapter-section">
@@ -456,6 +553,7 @@ int main() {
     return 0;
 }
     </pre>
+         <img src="photos/c14.png" alt="Output" style="max-width: 100%; height: auto;">
     <b>Example: Passing array to a function (printing elements)</b>
     <pre>
 #include &lt;stdio.h&gt;
@@ -473,259 +571,12 @@ int main() {
     return 0;
 }
     </pre>
+    
+         <img src="photos/c15.png" alt="Output" style="max-width: 100%; height: auto;">
 </section>
 
 
-            <section class="chapter-section">
-                <h2>Questions and Answers</h2>
-                
-                <h3>1. What is Programming?</h3>
-                <p>Programming is the process of writing instructions (code) that a computer can execute to perform specific tasks. It involves problem-solving, logic, and algorithm development to create software applications.</p>
-                <p>Programming is done using different languages such as:</p>
-                <ul>
-                    <li><strong>Python:</strong> Easy to learn and widely used for data science, web development, and automation.</li>
-                    <li><strong>C++:</strong> Used for system programming, game development, and competitive coding.</li>
-                    <li><strong>Java:</strong> Used for mobile applications (Android), enterprise applications, and backend development.</li>
-                    <li><strong>JavaScript:</strong> Primarily used for web development and interactive websites.</li>
-                </ul>
-                <p>Programming requires logical thinking, problem-solving skills, and an understanding of syntax and semantics.</p>
-
-                <h3>2. What is an Algorithm?</h3>
-                <p>An algorithm is a step-by-step procedure or set of rules for solving a problem in a finite number of steps. It is used in programming to define logic before writing actual code.</p>
-                <p>Characteristics of a good algorithm:</p>
-                <ul>
-                    <li><strong>Definiteness:</strong> Each step must be clear and unambiguous.</li>
-                    <li><strong>Finiteness:</strong> It must have a finite number of steps.</li>
-                    <li><strong>Effectiveness:</strong> Each step should be simple and executable.</li>
-                    <li><strong>Input & Output:</strong> It should take input and produce an output.</li>
-                </ul>
-                <p>Example Algorithm: Finding the sum of two numbers</p>
-                <pre>Step 1: Start
-Step 2: Input two numbers (A, B)
-Step 3: Compute Sum = A + B
-Step 4: Display Sum
-Step 5: Stop</pre>
-
-                <h3>3. What is a Flowchart?</h3>
-                <p>A flowchart is a graphical representation of an algorithm using symbols to illustrate steps and decision-making in a program.</p>
-                <p>Common flowchart symbols:</p>
-                <ul>
-                    <li><strong>Oval:</strong> Start/End</li>
-                    <li><strong>Parallelogram:</strong> Input/Output</li>
-                    <li><strong>Rectangle:</strong> Process (Calculation or Action)</li>
-                    <li><strong>Diamond:</strong> Decision (Yes/No or True/False)</li>
-                    <li><strong>Arrow:</strong> Flow of execution</li>
-                </ul>
-                <p>Flowcharts help programmers visualize logic before coding, making debugging easier.</p>
-
-                <h3>4. What are Variables and Data Types?</h3>
-                <p>A variable is a named storage location in memory used to hold data. The value of a variable can change during program execution.</p>
-                <p>Data types define the type of data that a variable can hold. Common data types include:</p>
-                <ul>
-                    <li><strong>Integer (int):</strong> Holds whole numbers (e.g., 5, -10).</li>
-                    <li><strong>Float (float/double):</strong> Holds decimal numbers (e.g., 3.14, -2.5).</li>
-                    <li><strong>Character (char):</strong> Holds a single character (e.g., 'A', '5').</li>
-                    <li><strong>String:</strong> Holds a sequence of characters (e.g., "Hello").</li>
-                    <li><strong>Boolean (bool):</strong> Holds True or False values.</li>
-                </ul>
-                <p>Example in C:</p>
-                <pre>#include &lt;stdio.h&gt;
-
-int main() {
-    int age = 20;           // Integer
-    float price = 10.99;    // Float
-    char name[] = "Alice";  // String
-    int is_student = 1;     // Boolean (1 for True, 0 for False)
-
-    printf("Age: %d\n", age);
-    printf("Price: %.2f\n", price);
-    printf("Name: %s\n", name);
-    printf("Is Student: %d\n", is_student);
-
-    return 0;
-}</pre>
-
-                <h3>5. What are Conditional Statements?</h3>
-                <p>Conditional statements allow a program to make decisions based on conditions. The main types are:</p>
-                <ul>
-                    <li><strong>If Statement:</strong> Executes a block of code if the condition is true.</li>
-                    <li><strong>If-Else Statement:</strong> Executes one block if the condition is true, otherwise executes another block.</li>
-                    <li><strong>Nested If:</strong> If statements inside other if statements.</li>
-                    <li><strong>Switch Case (in some languages):</strong> Used as an alternative to multiple if-else statements.</li>
-                </ul>
-                <p>Example in C:</p>
-                <pre>#include &lt;stdio.h&gt;
-
-int main() {
-    int age = 18;
-
-    if (age >= 18) {
-        printf("You are eligible to vote.\n");
-    } else {
-        printf("You are not eligible to vote.\n");
-    }
-
-    return 0;
-}</pre>
-
-                <h3>6. What are Loops in Programming?</h3>
-                <p>Loops are used to execute a block of code multiple times. The main types of loops are:</p>
-                <ul>
-                    <li><strong>For Loop:</strong> Repeats a block of code a specific number of times.</li>
-                    <li><strong>While Loop:</strong> Repeats while a condition is true.</li>
-                    <li><strong>Do-While Loop (in some languages):</strong> Executes at least once before checking the condition.</li>
-                </ul>
-                <p>Example in C (For Loop):</p>
-                <pre>#include &lt;stdio.h&gt;
-
-int main() {
-    for (int i = 1; i <= 5; i++) {
-        printf("%d\n", i);
-    }
-
-    return 0;
-}</pre>
-                <p>This prints numbers from 1 to 5.</p>
-
-                <h3>7. What are Functions in Programming?</h3>
-                <p>A function is a reusable block of code that performs a specific task. Functions help in modular programming and avoid repetition.</p>
-                <p>Types of Functions:</p>
-                <ul>
-                    <li><strong>Built-in Functions:</strong> Predefined functions like printf(), scanf(), etc.</li>
-                    <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
-                </ul>
-                <p>Some Additional Examples</p>
-                <list>
-                    <ol>
-               <li> Check prime for the input number</li>
-                <pre>
-                    
- //Check if the input number is prime or not
-                    
-#include &lt;stdio.h&gt;
-int main(){
-    int n,i,count=0;
-    printf("Enter a number: ");
-    scanf("%d",&n);
-    for(i=1;i<=n;i++){
-        if(n%i==0){
-            count++;
-           
-        }
-    }
-    if(count==2){
-        printf("The number is prime");
-    }
-    else{
-        printf("The number is not prime");
-    }
-}
-Output
-<img src="photos/prime.png"  style="max-width: 100%; height: auto;">
-                </pre>
-                
-
-                <li>
-                <p>Find the factorial of the input number</p>
-                </li>
-                <pre>
-//Find the factorial of the input number        
-#include &lt;stdio.h&gt;
-int main(){
-    int n,i,fact=1;
-    printf("Enter a number: ");
-    scanf("%d",&n);
-    for(i=1;i<=n;i++){
-        fact=fact*i;
-    }
-    printf("The factorial of %d is %d",n,fact);
-   
-}
-Output
-<img src="photos/factorial.png"  style="max-width: 100%; height: auto;">
-                </pre>
-                <li>
-                <p>Check if the input numbr is palindrome or not</p>
-                </li>
-                <pre>
-//Check if the input number is palindrome or not    
-#include &lt;stdio.h&gt;
-int main(){
-    int n,rev=0,rem,backup;
-    printf("Enter a number: ");
-    scanf("%d",&n);
-    backup=n;
-    while(n!=0){
-        rem=n%10;
-        rev=rev*10+rem;
-        n=n/10;
-    }
-    if(backup==rev){
-        printf("%d is palindrome",backup);
-       }
-    else{
-        printf("%d is not palindrome",backup);
-        
-    }
-    return 0;
-}
-Output
-<img src="photos/palindrome.png"  style="max-width: 100%; height: auto;">
-                </pre>
-                <li>Generate the fibonacci series for n term</li>
-                <pre>
-//Generate the fibonacci series for n term
-#include &lt;stdio.h&gt;
-#include <stdio.h>
-    int main(){
-        int n,i,a=0,b=1,c;
-        printf("Enter the number of terms: ");
-        scanf("%d",&n);
-      
-        for(i=1;i<=n;i++){
-            printf("%d ",a);
-            c=a+b;
-            a=b;
-            b=c;
-        }
-        return 0;
-    }
-    Output
-<img src="photos/fabonacci.png"  style="max-width: 100%; height: auto;">
-</pre>
-<li>Check input number is prefect or not 
-
-</li>
-<pre>
-//Check input number is prefect or not
-#include &lt;stdio.h&gt;
-int main(){
-    int n,i,sum=0;
-    printf("Enter a number: ");
-    scanf("%d",&n);
-  for(i=1;i&lt;=n;i++){
-        if(n%i==0){
-            sum=sum+i;
-        }
-    }
-    if(sum==n){
-        printf("%d is a perfect number",n);
-    }
-    else{
-        printf("%d is not a perfect number",n);
-    }
-    Output
-<img src="photos/perfect.png"  style="max-width: 100%; height: auto;">
-</pre>
-            </ol>
-            </list>
-            </section>
-
-            <a href="index.html" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Chapters
-            </a>
-        </div>
-    </main>
+             </main>
 
     <footer>
         <div class="footer-content">
