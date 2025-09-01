@@ -277,7 +277,201 @@ ul>
                     <li>Maintaining database integrity and consistency.</li>
                 </ul>
             </section>
+            <section class="chapter-content">
+                <h2>E-R Diagram </h2>
+                <p>
+        An <b>Entity-Relationship (E-R) Diagram</b> is a visual representation of the entities (objects) in a database and the relationships between them. It is used during database design to illustrate how data is structured and how different entities interact with each other.
+         E-R diagrams help in designing a clear and logical database structure by identifying entities, their attributes, and the relationships among them.
+    </p>
+        <h3>Key Concepts in E-R Diagram</h3>
+    <ul>
+        <li>
+            <b>Entity:</b> An object or thing in the real world with an independent existence. Example: <i>Student, Teacher, Book</i>.
+        </li>
+        <li>
+            <b>Attribute:</b> A property or characteristic of an entity. Example: <i>Student</i> entity may have attributes like <i>RollNo, Name, Age</i>.
+        </li>
+        <li>
+            <b>Relationship:</b> An association among two or more entities. Example: <i>Enrolled</i> relationship between <i>Student</i> and <i>Course</i>.
+        </li>
+        <li>
+            <b>Cardinality:</b> Specifies the number of instances of one entity that can or must be associated with each instance of another entity. Example: One-to-One, One-to-Many, Many-to-Many.
+        </li>
+        <li>
+            <b>Degree:</b> The number of entities involved in a relationship. Example: 
+            <ul>
+                <li><b>Unary:</b> Relationship with one entity set (e.g., Employee manages Employee).</li>
+                <li><b>Binary:</b> Relationship with two entity sets (most common).</li>
+                <li><b>Ternary:</b> Relationship with three entity sets.</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>E-R Diagram Symbols and Their Meanings</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>Symbol</th>
+            <th>Meaning</th>
+            <th>Image </th>
+        </tr>
+        <tr>
+            <td><b>Rectangle</b></td>
+            <td>Represents an <b>Entity</b></td>
+            <td><img src="photos/E_r.png"></td>
+        </tr>
+        <tr>
+            <td><b>Ellipse (Oval)</b></td>
+            <td>Represents an <b>Attribute</b></td>
+<td><img src="photos/er_2.png"></td>
+        </tr>
+        <tr>
+            <td><b>Diamond</b></td>
+            <td>Represents a <b>Relationship</b></td>
+            <td><img src="photos/er_3.png"></td>
+        </tr>
+        <tr>
+            <td><b>Line</b></td>
+            <td>Connects entities to relationships and attributes to entities</td>
+            <td><img src="photos/er4.png"></td>
+        </tr>
+        <tr>
+            <td><b>Double Rectangle</b></td>
+            <td>Represents a <b>Weak Entity</b></td>
+            <td><img src="photos/er5.png"></td>
+        </tr>
+        <tr>
+            <td><b>Double Ellipse</b></td>
+            <td>Represents a <b>Multivalued Attribute</b></td>
+            <td><img src="photos/er6.png"></td>
+        </tr>
+        <tr>
+            <td><b>Dashed Ellipse</b></td>
+            <td>Represents a <b>Derived Attribute</b></td>
+            <td><img src="photos/er7.png"></td>
+        </tr>
+    </table>
+            </section>
+<section class="chapter-section">
+    <h2>SQL (DDL and DML)</h2>
+    <ul>
+        <li>
+            <b>DDL (Data Definition Language):</b> Used to define and modify the structure of database objects.
+            <ul>
+                <li><b>CREATE:</b> Creates a new table or database.<br>
+                    <code>CREATE TABLE students (id INT, name VARCHAR(50));</code>
+                </li>
+                <li><b>ALTER:</b> Modifies an existing table.<br>
+                    <code>ALTER TABLE students ADD age INT;</code>
+                </li>
+                <li><b>DROP:</b> Deletes a table or database.<br>
+                    <code>DROP TABLE students;</code>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>DML (Data Manipulation Language):</b> Used to manage data within tables.
+            <ul>
+                <li><b>INSERT:</b> Adds new records.<br>
+                    <code>INSERT INTO students (id, name) VALUES (1, 'Amit');</code>
+                </li>
+                <li><b>UPDATE:</b> Modifies existing records.<br>
+                    <code>UPDATE students SET name = 'Anita' WHERE id = 1;</code>
+                </li>
+                <li><b>DELETE:</b> Removes records.<br>
+                    <code>DELETE FROM students WHERE id = 1;</code>
+                </li>
+                <li><b>SELECT:</b> Retrieves data.<br>
+                    <code>SELECT * FROM students;</code>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
 
+<section class="chapter-section">
+    <h2>Data Constraints</h2>
+    <ul>
+        <li><b>NOT NULL:</b> Ensures a column cannot have a NULL value.<br>
+            <code>name VARCHAR(50) NOT NULL</code>
+        </li>
+        <li><b>UNIQUE:</b> Ensures all values in a column are different.<br>
+            <code>email VARCHAR(100) UNIQUE</code>
+        </li>
+        <li><b>PRIMARY KEY:</b> Uniquely identifies each record in a table.<br>
+            <code>id INT PRIMARY KEY</code>
+        </li>
+        <li><b>AUTO INCREMENT:</b> Automatically increases the value for each new record (MySQL syntax).<br>
+            <code>id INT PRIMARY KEY AUTO_INCREMENT</code>
+        </li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>SQL Operators (AND, OR, NOT)</h2>
+    <ul>
+        <li><b>AND:</b> Returns records where all conditions are true.<br>
+            <code>SELECT * FROM students WHERE class = 12 AND marks &gt; 80;</code>
+        </li>
+        <li><b>OR:</b> Returns records where any condition is true.<br>
+            <code>SELECT * FROM students WHERE class = 12 OR marks &gt; 80;</code>
+        </li>
+        <li><b>NOT:</b> Returns records where the condition is not true.<br>
+            <code>SELECT * FROM students WHERE NOT class = 12;</code>
+        </li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>WHERE Clause</h2>
+    <p>The <b>WHERE</b> clause is used to filter records that meet a specific condition.</p>
+    <code>SELECT * FROM students WHERE marks &gt; 75;</code>
+</section>
+
+<section class="chapter-section">
+    <h2>ORDER BY Clause</h2>
+    <p>The <b>ORDER BY</b> clause is used to sort the result set in ascending or descending order.</p>
+    <code>SELECT * FROM students ORDER BY marks DESC;</code>
+</section>
+
+<section class="chapter-section">
+    <h2>SQL JOINs</h2>
+    <ul>
+        <li>
+            <b>INNER JOIN:</b> Returns records with matching values in both tables.<br>
+            <code>
+SELECT students.name, courses.course_name
+FROM students
+INNER JOIN courses ON students.course_id = courses.id;
+            </code>
+        </li>
+        <li>
+            <b>LEFT JOIN:</b> Returns all records from the left table and matched records from the right table.<br>
+            <code>
+SELECT students.name, courses.course_name
+FROM students
+LEFT JOIN courses ON students.course_id = courses.id;
+            </code>
+        </li>
+        <li>
+            <b>RIGHT JOIN:</b> Returns all records from the right table and matched records from the left table.<br>
+            <code>
+SELECT students.name, courses.course_name
+FROM students
+RIGHT JOIN courses ON students.course_id = courses.id;
+            </code>
+        </li>
+        <li>
+            <b>FULL JOIN:</b> Returns all records when there is a match in either left or right table.<br>
+            <code>
+SELECT students.name, courses.course_name
+FROM students
+FULL JOIN courses ON students.course_id = courses.id;
+            </code>
+        </li>
+    </ul>
+    <p><b>Example Tables:</b></p>
+    <ul>
+        <li><b>students</b>: id, name, course_id</li>
+        <li><b>courses</b>: id, course_name</li>
 
                     <h2>Security Measures</h2>
                 <h3>Technical Measures</h3>
