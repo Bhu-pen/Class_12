@@ -360,6 +360,238 @@ int main() {
     </ol>
 </section>
 <section class="chapter-section">
+    <section class="chapter-section">
+    <h2>Passing Arguments in C</h2>
+    <ul>
+        <li><b>Call by Value:</b> Copies the actual value of an argument into the function’s parameter. Changes made inside the function do not affect the original value.<br>
+        <pre>
+void change(int x) {
+    x = 10;
+}
+int main() {
+    int a = 5;
+    change(a);
+    printf("%d", a); // Output: 5
+    return 0;
+}
+        </pre>
+        </li>
+        <li><b>Call by Reference:</b> Passes the address of the argument. Changes made inside the function affect the original value.<br>
+        <pre>
+void change(int *x) {
+    *x = 10;
+}
+int main() {
+    int a = 5;
+    change(&a);
+    printf("%d", a); // Output: 10
+    return 0;
+}
+        </pre>
+        </li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Variable and its Scope</h2>
+    <ul>
+        <li><b>Local Variable:</b> Declared inside a function/block, accessible only there.</li>
+        <li><b>Global Variable:</b> Declared outside all functions, accessible throughout the program.</li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Storage Classes in C</h2>
+    <ul>
+        <li><b>Automatic (auto):</b> Default for local variables. Lifetime: function/block.</li>
+        <li><b>External (extern):</b> Used to declare a global variable defined elsewhere.</li>
+        <li><b>Static:</b> Retains value between function calls.</li>
+        <li><b>Register:</b> Suggests storing variable in CPU register for speed.</li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Function with Array Example</h2>
+    <pre>
+void printArray(int arr[], int n) {
+    for(int i=0; i&lt;n; i++)
+        printf("%d ", arr[i]);
+}
+int main() {
+    int a[3] = {1,2,3};
+    printArray(a, 3);
+    return 0;
+}
+    </pre>
+</section>
+
+<section class="chapter-section">
+    <h2>Recursive Function</h2>
+    <b>Syntax:</b>
+    <pre>
+return_type function_name(parameters) {
+    if(base_condition)
+        return value;
+    else
+        return function_name(smaller_problem);
+}
+    </pre>
+    <b>Example (Factorial):</b>
+    <pre>
+int fact(int n) {
+    if(n==0) return 1;
+    else return n*fact(n-1);
+}
+    </pre>
+</section>
+
+<section class="chapter-section">
+    <h2>Advantages & Disadvantages of Functions</h2>
+    <ul>
+        <li><b>Advantages:</b> Code reusability, modularity, easier debugging.</li>
+        <li><b>Disadvantages:</b> Overhead of function calls, sometimes less efficient.</li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Structure and Union</h2>
+    <h3>Structure</h3>
+    <ul>
+        <li><b>Introduction & Syntax:</b>
+            <pre>
+struct Student {
+    int roll;
+    char name[20];
+};
+            </pre>
+        </li>
+        <li><b>Structure Size:</b> Sum of sizes of all members.</li>
+        <li><b>Accessing Members:</b>
+            <pre>
+struct Student s1;
+s1.roll = 1;
+strcpy(s1.name, "Amit");
+            </pre>
+        </li>
+        <li><b>Nested Structure:</b>
+            <pre>
+struct Date { int d,m,y; };
+struct Student {
+    int roll;
+    struct Date dob;
+};
+            </pre>
+        </li>
+        <li><b>Array of Structure:</b>
+            <pre>
+struct Student s[3];
+            </pre>
+        </li>
+        <li><b>Passing Structure to Function:</b>
+            <pre>
+void display(struct Student s) { ... }
+            </pre>
+        </li>
+    </ul>
+    <h3>Union</h3>
+    <ul>
+        <li><b>Introduction & Syntax:</b>
+            <pre>
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+            </pre>
+        </li>
+        <li><b>Comparison:</b> Structure allocates memory for all members, union shares memory for all members.</li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Pointers in C</h2>
+    <ul>
+        <li><b>Introduction & Syntax:</b>
+            <pre>
+int *p;
+int a = 10;
+p = &a;
+            </pre>
+        </li>
+        <li><b>Usage:</b> Access memory address, dynamic memory, arrays, functions.</li>
+        <li><b>Value & Address:</b> <code>*p</code> gives value, <code>p</code> gives address.</li>
+        <li><b>Pointer and Function Example:</b>
+            <pre>
+void swap(int *a, int *b) {
+    int t = *a; *a = *b; *b = t;
+}
+            </pre>
+        </li>
+        <li><b>Call by Reference Example:</b>
+            <pre>
+swap(&x, &y);
+            </pre>
+        </li>
+        <li><b>Pointer with Arrays:</b>
+            <pre>
+int arr[3] = {1,2,3};
+int *p = arr;
+printf("%d", *(p+1)); // Output: 2
+            </pre>
+        </li>
+        <li><b>Advantages:</b> Efficient memory use, dynamic allocation.</li>
+        <li><b>Disadvantages:</b> Complex, can cause bugs if misused.</li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>File Handling in C</h2>
+    <ul>
+        <li><b>Concept:</b> Storing data permanently in files.</li>
+        <li><b>Need:</b> Data persistence, large data handling.</li>
+        <li><b>Types:</b> Sequential and Random files.</li>
+        <li><b>File Pointer:</b> <code>FILE *fp;</code></li>
+        <li><b>File Opening Modes:</b> <code>r, r+, w, w+, a, a+</code></li>
+        <li><b>Steps:</b> Define pointer, open file, read/write/append, close file.</li>
+        <li><b>Reading:</b> <code>fscanf(), fgets(), fread()</code></li>
+        <li><b>Writing:</b> <code>fprintf(), fputs(), fwrite()</code></li>
+        <li><b>Appending:</b> Open with <code>a</code> or <code>a+</code></li>
+        <li><b>End of File:</b> <code>EOF</code></li>
+    </ul>
+    <h3>File Handling Functions</h3>
+    <ul>
+        <li><b>fopen(), fclose():</b> Open/close file.<br>
+            <code>fp = fopen("file.txt", "r"); fclose(fp);</code>
+        </li>
+        <li><b>getc(), putc():</b> Read/write character.</li>
+        <li><b>fprintf(), fscanf():</b> Write/read formatted data.</li>
+        <li><b>getw(), putw():</b> Read/write integer.</li>
+        <li><b>fgets(), fputs():</b> Read/write string.</li>
+        <li><b>fread(), fwrite():</b> Read/write block of data.</li>
+        <li><b>remove(), rename():</b> Delete/rename file.</li>
+    </ul>
+    <h3>Random Access Functions</h3>
+    <ul>
+        <li><b>fseek():</b> Move file pointer.<br>
+            <code>fseek(fp, 0, SEEK_SET);</code>
+        </li>
+        <li><b>rewind():</b> Move pointer to start.<br>
+            <code>rewind(fp);</code>
+        </li>
+        <li><b>ftell():</b> Get current pointer position.<br>
+            <code>long pos = ftell(fp);</code>
+        </li>
+    </ul>
+</section>
+
+<section class="chapter-section">
+    <h2>Typedef Keyword in C</h2>
+    <ul>
+        <li><b>Purpose:</b> Create alias for data types.<br>
+            <code>typedef unsigned long ulong;</code>
+        </li>
+    </ul>
+</section>
     <h2>Storage Classes in C</h2>
     <ol>
         <li><b>Automatic (auto):</b><br>
